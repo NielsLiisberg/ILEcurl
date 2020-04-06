@@ -17,7 +17,7 @@ end-proc;
 
 ### Installation
 
-Installation of ILEcurl should be done with `git`, `gmake` (GNU Make) and ´python´, which are available via `yum` - you can read more about [yum here](https://bitbucket.org/ibmi/opensource/src/master/docs/yum/).
+Installation of ILEcurl should be done with `git`, `gmake` (GNU Make) and `python`, which are available via `yum` - you can read more about [yum here](https://bitbucket.org/ibmi/opensource/src/master/docs/yum/).
 
 ILEcurl is a two step process. ILEcurl requires you to build from source, but this step has been totally automated for you. To install ILEcurl, you need to use the pase environment (with `ssh` for example) and with a couple of seconds you can have the project built. No need to download save files, upload them or restore them.
 
@@ -53,15 +53,15 @@ This is the extra curl command parameter - note the `input` parameter is a separ
 have to escape the input
 
 #### input data
-Like the result it is transferred in UTF-8 and converted by the prototype. The contents type ( form, json, XML etc) can be used however you need to set the `Content-type`  accordingly
+Like the result it is transferred in UTF-8 and converted by the prototype. The contents type ( form, json, XML etc) can be used however you need to set the `Content-type`  accordingly.
 
-for more information about cURL parameters please read:
+For more information about cURL parameters please read:
 
 https://curl.haxx.se/docs/manpage.html
 
 
 ### Release
-To install the release, run:
+To install the binary release, run:
 ```
 CRTLIB ILECURL
 CPYFRMSTMF FROMSTMF('./release/release.savf') TOMBR('/QSYS.lib/ILECURL.lib/RELEASE.FILE') MBROPT(*REPLACE) CVTDTA(*NONE)
