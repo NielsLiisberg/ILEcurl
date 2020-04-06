@@ -53,7 +53,7 @@ SQLFLAGS=COMMIT(*NONE)
 
 # Dependency list ---  list all
 
-all:  $(BIN_LIB).lib ileCurl.srvpgm
+all:  $(BIN_LIB).lib ileCurl.srvpgm release
 
 
 #-----------------------------------------------------------
