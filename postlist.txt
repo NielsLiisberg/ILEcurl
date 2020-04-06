@@ -1,0 +1,823 @@
+Command is > CRTRPGMOD SRCSTMF('src/ILEcurl.rpgle') MODULE(ILECURL/ILEcurl) DBGVIEW(*LIST) OPTION(*NOUNREF *EVENTF) INCDIR('./..')  <
+RNS9305: Module ILECURL placed in library ILECURL. 00 highest severity. Created on 07-04-20 at 00:57:16.
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page      1
+  Command  . . . . . . . . . . . . :   CRTRPGMOD
+    Issued by  . . . . . . . . . . :     NLI
+  Module . . . . . . . . . . . . . :   ILECURL
+    Library  . . . . . . . . . . . :     ILECURL
+  Text 'description' . . . . . . . :   *SRCMBRTXT
+  Source stream file   . . . . . . :   src/ILEcurl.rpgle
+    CCSID  . . . . . . . . . . . . :     500
+  Text 'description' . . . . . . . :
+  Last Change  . . . . . . . . . . :   07-04-20  00:56:57
+  Generation severity level  . . . :   10
+  Compiler options . . . . . . . . :   *XREF      *GEN       *NOSECLVL  *SHOWCPY
+                                       *EXPDDS    *EXT       *NOSHOWSKP *NOSRCSTMT
+                                       *DEBUGIO   *NOUNREF   *EVENTF
+  Debugging views  . . . . . . . . :   *LIST
+  Debug encryption key . . . . . . :   *NONE
+  Output . . . . . . . . . . . . . :   *PRINT
+  Optimization level . . . . . . . :   *NONE
+  Source listing indentation . . . :   *NONE
+  Type conversion options  . . . . :   *NONE
+  Sort sequence  . . . . . . . . . :   *HEX
+  Language identifier  . . . . . . :   *JOBRUN
+  Replace module . . . . . . . . . :   *YES
+  Authority  . . . . . . . . . . . :   *LIBCRTAUT
+  Truncate numeric . . . . . . . . :   *YES
+  Fix numeric  . . . . . . . . . . :   *NONE
+  Target release . . . . . . . . . :   *CURRENT
+  Allow null values  . . . . . . . :   *NO
+  Storage model . . .  . . . . . . :   *INHERIT
+  Binding directory  . . . . . . . :   *NONE
+  Define condition names . . . . . :   *NONE
+  Enable performance collection  . :   *PEP
+  Profiling data . . . . . . . . . :   *NOCOL
+  Licensed Internal Code options . :
+  Generate program interface . . . :   *NO
+  Include directory  . . . . . . . :   ./..
+  Preprocessor options . . . . . . :   *NONE
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page      2
+Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+                          S o u r c e   L i s t i n g
+     1 **FREE                                                                                                               000001
+     2 // CMD:CRTRPGMOD                                                                                                     000002
+     3 ctl-opt copyright('System & Method (C), 2020');                                                                      000003
+     4 ctl-opt decEdit('0,') datEdit(*YMD.) nomain;                                                                         000004
+     5 ctl-opt bnddir('QC2LE');                                                                                             000005
+     6                                                                                                                      000006
+     7 //  -----------------------------------------------------------------------------                                    000007
+     8 //   By     Date       PTF     Description                                                                           000008
+     9 //   ------ ---------- ------- ---------------------------------------------------                                   000009
+    10 //   NLI    22.03.2020         New program                                                                           000010
+    11 //   -----------------------------------------------------------------------------                                   000011
+    12 /include headers/ILEcurl.rpgle                                                                                       000012
+Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
+Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+        *--------------------------------------------------------------------------------------------*
+        * RPG member name  . . . . . :  ILEcurl.r+                                                   *                     1
+        * External name  . . . . . . :  ./headers/ILEcurl.rpgle                                      *                     1
+        * Last change  . . . . . . . :  07-04-20  00:04:04                                           *                     1
+        *--------------------------------------------------------------------------------------------*
+Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+    13+**FREE                                                                                                              1000001
+    14+                                                                                                                    1000002
+    15+/if defined( ILECURL_DEF)                                                                                           1000003
+            LINES EXCLUDED: 1
+    16+/endif                                                                                                              1000005
+    17+/define  ILECURL_DEF                                                                                                1000006
+    18+                                                                                                                    1000007
+        *--------------------------------------------------------------------*
+        * Compiler Options in Effect:                                        *
+        *--------------------------------------------------------------------*
+        *  Text 'description' . . . . . . . :                                *
+        *  Generation severity level  . . . :   10                           *
+        *  Compiler options . . . . . . . . :   *XREF      *GEN              *
+        *                                       *NOSECLVL  *SHOWCPY          *
+        *                                       *EXPDDS    *EXT              *
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page      3
+Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+        *                                       *NOSHOWSKP *NOSRCSTMT        *
+        *                                       *DEBUGIO   *NOUNREF          *
+        *                                       *EVENTF                      *
+        *  Optimization level . . . . . . . :   *NONE                        *
+        *  Source listing indentation . . . :   *NONE                        *
+        *  Type conversion options  . . . . :   *NONE                        *
+        *  Sort sequence  . . . . . . . . . :   *HEX                         *
+        *  Language identifier  . . . . . . :   *JOBRUN                      *
+        *  Authority  . . . . . . . . . . . :   *LIBCRTAUT                   *
+        *  Truncate numeric . . . . . . . . :   *YES                         *
+        *  Fix numeric  . . . . . . . . . . :   *NONE                        *
+        *  Allow null values  . . . . . . . :   *NO                          *
+        *  Storage model . . .  . . . . . . :   *INHERIT                     *
+        *  Binding directory from Command . :   *NONE                        *
+        *  Binding directory from Source  . :   QC2LE                        *
+        *    Library  . . . . . . . . . . . :     *LIBL                      *
+        *  Enable performance collection  . :   *PEP                         *
+        *  Profiling data . . . . . . . . . :   *NOCOL                       *
+        *  Generate program interface . . . :   *NO                          *
+        *--------------------------------------------------------------------*
+    19+dcl-pr ic_curl varchar(32760);                                                                                      1000008
+    20+    url    varchar(256)   const options(*varsize);                                                                  1000009
+    21+    parms  varchar(32760) const options(*varsize:*nopass);                                                          1000010
+    22+    data   varchar(32760) const options(*varsize:*nopass) ccsid(*UTF8);                                             1000011
+    23+end-pr;                                                                                                             1000012
+    24+                                                                                                                    1000013
+    25+dcl-pr ic_loadFromStream varchar(32760);                                                                            1000014
+    26+    fileName    varchar(256)   value;                                                                               1000015
+    27+end-pr;                                                                                                             1000016
+    28+                                                                                                                    1000017
+    29+dcl-pr ic_writeToStream ;                                                                                           1000018
+    30+    fileName    varchar(256)   value;                                                                               1000019
+    31+    inbuf       varchar(32760) const options(*varsize) ccsid(*UTF8);                                                1000020
+    32+end-pr;                                                                                                             1000021
+    33+                                                                                                                    1000022
+    34+dcl-pr ic_jobLog int(10) extproc('Qp0zLprintf');                                                                    1000023
+    35+    fmtstr pointer value options(*string); // logMsg                                                                1000024
+    36+end-pr;                                                                                                             1000025
+    37+                                                                                                                    1000026
+    38+                                                                                                                    1000027
+    39+                                                                                                                    1000028
+    40+                                                                                                                    1000029
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page      4
+Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+    41 /include headers/IFS.rpgle                                                                                           000013
+Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
+Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+        *--------------------------------------------------------------------------------------------*
+        * RPG member name  . . . . . :  IFS.rpgle                                                    *                     2
+        * External name  . . . . . . :  ./headers/IFS.rpgle                                          *                     2
+        * Last change  . . . . . . . :  06-04-20  18:44:39                                           *                     2
+        *--------------------------------------------------------------------------------------------*
+    42+ * ---------------------------------------------------------------------                                            2000001
+    43+ * IFS wraps the C-functions and POSIX functions for the IFS file system                                            2000002
+    44+ * Need binddir QC2LE so add the follwing H-spec                                                                    2000003
+    45+ * H BndDir('QC2LE')                                                                                                2000004
+    46+ * If you need the handles to C standartd files simply define:                                                      2000005
+    47+ * /define IFS_STD_FILES                                                                                            2000006
+    48+ * ---------------------------------------------------------------------                                            2000007
+    49+ /if not defined(IFS_DEF)                                                                                           2000008
+    50+ /define IFS_DEF                                                                                                    2000009
+    51+                                                                                                                    2000010
+    52+d rename          PR            10I 0 extproc('Qp0lRenameKeep')                                                     2000011
+    53+d  oldname                        *   value options(*string)                                                        2000012
+    54+d  newname                        *   value options(*string)                                                        2000013
+    55+                                                                                                                    2000014
+    56+d unlink          PR            10I 0 extproc('unlink')                                                             2000015
+    57+d   path                          *   value options(*string)                                                        2000016
+    58+                                                                                                                    2000017
+    59+d statDS          DS                  based(prototype_only) qualified                                               2000018
+    60+d  mode                         10U 0                                                                               2000019
+    61+d  ino                          10U 0                                                                               2000020
+    62+d  nlink                         5U 0                                                                               2000021
+    63+d  pad                           2A                                                                                 2000022
+    64+d  uid                          10U 0                                                                               2000023
+    65+d  gid                          10U 0                                                                               2000024
+    66+d  size                         10I 0                                                                               2000025
+    67+d  atime                        10I 0                                                                               2000026
+    68+d  mtime                        10I 0                                                                               2000027
+    69+d  ctime                        10I 0                                                                               2000028
+    70+d  dev                          10U 0                                                                               2000029
+    71+d  blksize                      10U 0                                                                               2000030
+    72+d  allocsize                    10U 0                                                                               2000031
+    73+d  objtype                      10A                                                                                 2000032
+    74+d  filler01                      2A                                                                                 2000033
+    75+d  codepage                      5U 0                                                                               2000034
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page      5
+Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
+Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+    76+d  reserved1                    62A                                                                                 2000035
+    77+d  ino_gen_id                   10U 0                                                                               2000036
+    78+                                                                                                                    2000037
+    79+                                                                                                                    2000038
+    80+d stat            PR            10I 0 extproc('stat')                                                               2000039
+    81+d  path                           *   value options(*string)                                                        2000040
+    82+d  pStatDS                        *   value                                                                         2000041
+    83+                                                                                                                    2000042
+    84+d fstat           PR            10I 0 extproc('fstat')                                                              2000043
+    85+d  hfile                        10I 0 value                                                                         2000044
+    86+d  pStatDS                        *   value                                                                         2000045
+    87+                                                                                                                    2000046
+    88+                                                                                                                    2000047
+    89+d DirDS           ds                  based(prototype_only) qualified                                               2000048
+    90+d  reserved1                    16A                                                                                 2000049
+    91+d  reserved2                    10U 0                                                                               2000050
+    92+d  fileno                       10U 0                                                                               2000051
+    93+d  reclen                       10U 0                                                                               2000052
+    94+d  reserved3                    10I 0                                                                               2000053
+    95+d  reserved4                     8A                                                                                 2000054
+    96+d  nlsinfo                      12A                                                                                 2000055
+    97+d   ccsid                       10I 0 overlay(nlsinfo:1)                                                            2000056
+    98+d   country                      2A   overlay(nlsinfo:5)                                                            2000057
+    99+d   lang                         3A   overlay(nlsinfo:7)                                                            2000058
+   100+d   reserved5                    3A   overlay(nlsinfo:10)                                                           2000059
+   101+d  varnameDS                   644A                                                                                 2000060
+   102+d   varname                    640A   overlay(varnameDS:3) varying                                                  2000061
+   103+d   namelen                     10U 0 overlay(varnameDS:1)                                                          2000062
+   104+d   name                       640A   overlay(varnameDS:5)                                                          2000063
+   105+                                                                                                                    2000064
+   106+d mkdir           PR            10I 0 extproc('mkdir')                                                              2000065
+   107+d  path                           *   value options(*string)                                                        2000066
+   108+d  accessmode                   10U 0 value options(*nopass)                                                        2000067
+   109+                                                                                                                    2000068
+   110+d rmdir           PR            10I 0 extproc('rmdir')                                                              2000069
+   111+d  path                           *   value options(*string)                                                        2000070
+   112+                                                                                                                    2000071
+   113+d chdir           PR            10I 0 extproc('chdir')                                                              2000072
+   114+d  path                           *   value Options(*string)                                                        2000073
+   115+                                                                                                                    2000074
+   116+d opendir         PR              *   extproc('opendir')                                                            2000075
+   117+d  dirname                        *   value options(*string)                                                        2000076
+   118+                                                                                                                    2000077
+   119+d readdir         PR              *   extproc('readdir')                                                            2000078
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page      6
+Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
+Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+   120+d  hdir                           *   value                                                                         2000079
+   121+                                                                                                                    2000080
+   122+d closedir        PR            10I 0 extproc('closedir')                                                           2000081
+   123+d  hdir                           *   value                                                                         2000082
+   124+                                                                                                                    2000083
+   125+d getcwd          PR              *   extproc('getcwd')                                                             2000084
+   126+d  dirname                        *   value                                                                         2000085
+   127+d  sizedirname                  10I 0 value                                                                         2000086
+   128+                                                                                                                    2000087
+   129+ // Open Flags (OpenFlags)                                                                                          2000088
+   130+d O_RDONLY        C                   1                                    Reading Only                             2000089
+   131+d O_WRONLY        C                   2                                    Writing Only                             2000090
+   132+d O_RDWR          C                   4                                    Reading & Writing                        2000091
+   133+d O_CREAT         C                   8                                    Create File if not e                     2000092
+   134+d O_EXCL          C                   16                                   Exclusively create                       2000093
+   135+d O_CCSID         C                   32                                   Assign a CCSID                           2000094
+   136+d O_TRUNC         C                   64                                   Truncate File to 0 b                     2000095
+   137+d O_APPEND        C                   256                                  Append to File                           2000096
+   138+d O_SYNC          C                   1024                                 Synchronous write                        2000097
+   139+d O_DSYNC         C                   2048                                 Sync write, data onl                     2000098
+   140+d O_RSYNC         C                   4096                                 Sync read                                2000099
+   141+d O_NOCTTY        C                   32768                                No controlling termi                     2000100
+   142+d O_SHARE_RDONLY  C                   65536                                Share with readers o                     2000101
+   143+d O_SHARE_WRONLY  C                   131072                               Share with writers o                     2000102
+   144+d O_SHARE_RDWR    C                   262144                               Share with read & wr                     2000103
+   145+d O_SHARE_NONE    C                   524288                               dont share                               2000104
+   146+d O_CODEPAGE      C                   8388608                              set code page                            2000105
+   147+d O_TEXTDATA      C                   16777216                             For new files - Open                     2000106
+   148+d O_TEXT_CREAT    C                   33554432                                                                      2000107
+   149+d O_INHERITMODE   C                   134217728                                                                     2000108
+   150+d O_LARGEFILE     C                   536870912                            Files over 2G                            2000109
+   151+                                                                                                                    2000110
+   152+ // accessMode - Is optional                                               Owner auth.                              2000111
+   153+d S_IRUSR         C                   256                                  read permission, own                     2000112
+   154+d S_IWUSR         C                   128                                  write permission, ow                     2000113
+   155+d S_IXUSR         C                   64                                   execute/search permi                     2000114
+   156+d S_IRWXU         C                   448                                  read, write, execute                     2000115
+   157+d S_IRGRP         C                   32                                   read permission, gro                     2000116
+   158+d S_IWGRP         C                   16                                   write permission, gr                     2000117
+   159+d S_IXGRP         C                   8                                    execute/search permi                     2000118
+   160+d S_IRWXG         C                   56                                   read, write, execute                     2000119
+   161+d S_IROTH         C                   4                                    read permission, pub                     2000120
+   162+d S_IWOTH         C                   2                                    write permission, pu                     2000121
+   163+d S_IXOTH         C                   1                                    execute/search permi                     2000122
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page      7
+Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
+Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+   164+d S_IRWXO         C                   7                                    read, write, execute                     2000123
+   165+                                                                                                                    2000124
+   166+ // Access flags:                                                                                                   2000125
+   167+ // F_OK: file exists                                                                                               2000126
+   168+ // R_OK: allow read access                                                                                         2000127
+   169+ // W_OK: allow write Access                                                                                        2000128
+   170+ // X_OK: allow execute                                                                                             2000129
+   171+d F_OK            C                   0                                                                             2000130
+   172+d R_OK            C                   4                                                                             2000131
+   173+d W_OK            C                   2                                                                             2000132
+   174+d X_OK            C                   1                                                                             2000133
+   175+                                                                                                                    2000134
+   176+d access          PR            10I 0 extproc('access')                                                             2000135
+   177+d  path                           *   value Options(*string)                                                        2000136
+   178+d  accessmode                   10I 0 value                                                                         2000137
+   179+                                                                                                                    2000138
+   180+d chmod           PR            10I 0 extproc('chmod')                                                              2000139
+   181+d  path                           *   value options(*string)                                                        2000140
+   182+d  accessmode                   10U 0 value                                                                         2000141
+   183+                                                                                                                    2000142
+   184+d open            PR            10I 0 extproc('open')                                                               2000143
+   185+d  path                           *   value options(*string)                                                        2000144
+   186+d  openflags                    10I 0 value                                                                         2000145
+   187+d  accessmode                   10U 0 value options(*nopass)                                                        2000146
+   188+d  codepage                     10U 0 value options(*nopass)                                                        2000147
+   189+                                                                                                                    2000148
+   190+d write           PR            10I 0 extproc('write')                                                              2000149
+   191+d  hfile                        10I 0 value                                                                         2000150
+   192+d  buffer                         *   value                                                                         2000151
+   193+d  bytes                        10U 0 value                                                                         2000152
+   194+                                                                                                                    2000153
+   195+d read            PR            10I 0 extproc('read')                                                               2000154
+   196+d  hfile                        10I 0 value                                                                         2000155
+   197+d  buffer                         *   value                                                                         2000156
+   198+d  bytes                        10U 0 value                                                                         2000157
+   199+                                                                                                                    2000158
+   200+ // seek consts                                                                                                     2000159
+   201+d SEEK_SET        C                   CONST(0)                                                                      2000160
+   202+d SEEK_CUR        C                   CONST(1)                                                                      2000161
+   203+d SEEK_END        C                   CONST(2)                                                                      2000162
+   204+                                                                                                                    2000163
+   205+d lseek           PR            10I 0 extproc('lseek')                                                              2000164
+   206+d  hfile                        10I 0 value                                                                         2000165
+   207+d  offset                       10I 0 value                                                                         2000166
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page      8
+Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
+Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+   208+d  whence                       10I 0 value                                                                         2000167
+   209+                                                                                                                    2000168
+   210+d close           PR            10I 0 extproc('close')                                                              2000169
+   211+d  hfile                        10I 0 value                                                                         2000170
+   212+ * ================================================================                                                 2000171
+   213+ * now the buffered sream files from stdio                                                                          2000172
+   214+ *-----------------------------------------------------------------                                                 2000173
+   215+d fopen           PR              *   ExtProc('_C_IFS_fopen')                                                       2000174
+   216+d   fileName                      *   value options(*string)                                                        2000175
+   217+d   mode                          *   value options(*string)                                                        2000176
+   218+ *                                                                                                                  2000177
+   219+d fgets           PR              *   ExtProc('_C_IFS_fgets')                                                       2000178
+   220+d   string                        *   value                                                                         2000179
+   221+d   size                        10I 0 value                                                                         2000180
+   222+d   filePtr                       *   value                                                                         2000181
+   223+ *                                                                                                                  2000182
+   224+d fputs           PR            10I 0 ExtProc('_C_IFS_fputs')                                                       2000183
+   225+d   string                        *   value options(*string)                                                        2000184
+   226+d   filePtr                       *   value                                                                         2000185
+   227+ *                                                                                                                  2000186
+   228+d fread           PR            10I 0 ExtProc('_C_IFS_fread')                                                       2000187
+   229+d   data                          *   value                                                                         2000188
+   230+d   size                        10I 0 value                                                                         2000189
+   231+d   count                       10I 0 value                                                                         2000190
+   232+d   filePtr                       *   value                                                                         2000191
+   233+ *                                                                                                                  2000192
+   234+d fwrite          PR            10I 0 ExtProc('_C_IFS_fwrite')                                                      2000193
+   235+d   data                          *   value                                                                         2000194
+   236+d   size                        10I 0 value                                                                         2000195
+   237+d   count                       10I 0 value                                                                         2000196
+   238+d   filePtr                       *   value                                                                         2000197
+   239+ *                                                                                                                  2000198
+   240+d fflush          PR            10U 0 ExtProc('_C_IFS_fflush')                                                      2000199
+   241+d   filePtr                       *   value                                                                         2000200
+   242+ *                                                                                                                  2000201
+   243+d fseek           PR            10I 0 ExtProc('_C_IFS_fseek')                                                       2000202
+   244+d   filePtr                       *   value                                                                         2000203
+   245+d   offset                      10I 0 value                                                                         2000204
+   246+d   whence                      10I 0 value                                                                         2000205
+   247+ *                                                                                                                  2000206
+   248+d ftell           PR            10I 0 ExtProc('_C_IFS_ftell')                                                       2000207
+   249+d   filePtr                       *   value                                                                         2000208
+   250+ *                                                                                                                  2000209
+   251+d fdopen          pr              *   extproc('fdopen')                                                             2000210
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page      9
+Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
+Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
+   252+d   fildes                      10I 0 value                                                                         2000211
+   253+d   mode                          *   value options(*string)                                                        2000212
+   254+d                                                                                                                   2000213
+   255+ *                                                                                                                  2000214
+   256+d fclose          PR            10I 0 ExtProc('_C_IFS_fclose')                                                      2000215
+   257+d   filePtr                       *   value                                                                         2000216
+   258+                                                                                                                    2000217
+   259+ // Modify access time and update time on a streamfile                                                              2000218
+   260+d utimbufDS       DS                  based(prototype_only) qualified                                               2000219
+   261+d  atime                        10I 0                                                                               2000220
+   262+d  mtime                        10I 0                                                                               2000221
+   263+                                                                                                                    2000222
+   264+d utime           PR            10I 0 extproc('utime')                                                              2000223
+   265+d  path                           *   value options(*string)                                                        2000224
+   266+d  utimbufDS                          likeds(utimbufDS)                                                             2000225
+   267+ * ----------------------------------------------------------------                                                 2000226
+   268+ * Std I/O files                                                                                                    2000227
+   269+ *-----------------------------------------------------------------                                                 2000228
+   270+ /if defined(IFS_STD_FILES)                                                                                         2000229
+            LINES EXCLUDED: 3
+   271+ /endif                                                                                                             2000233
+   272+                                                                                                                    2000234
+   273+ /endif                                                                                                             2000235
+   274+                                                                                                                    2000236
+Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+   275                                                                                                                      000014
+   276 //  -----------------------------------------------------------------------------                                    000015
+   277 //  Curl wrapper                                                                                                     000016
+   278 //  -----------------------------------------------------------------------------                                    000017
+   279 dcl-proc ic_curl export;                                                                                             000018
+   280                                                                                                                      000019
+   281     dcl-pi *n varchar(32760);                                                                                        000020
+   282         url    varchar(256)   const options(*varsize);                                                               000021
+   283         parms  varchar(32760) const options(*varsize:*nopass);                                                       000022
+   284         data   varchar(32760) const options(*varsize:*nopass) ccsid(*UTF8);                                          000023
+   285     end-pi;                                                                                                          000024
+   286                                                                                                                      000025
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page     10
+Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+   287     // Need PASE for this trick                                                                                      000026
+   288     Dcl-Pr Qp2Shell ExtPgm('QP2SHELL');                                                                              000027
+   289         parm1 char(256)   const options(*varsize);                                                                   000028
+   290         parm2 char(256)   const options(*varsize);                                                                   000029
+   291         parm3 char(32760) const options(*varsize);                                                                   000030
+   292     End-Pr Qp2Shell;                                                                                                 000031
+   293                                                                                                                      000032
+   294     dcl-s cmd       varchar(32760);                                                                                  000033
+   295     dcl-s inname    varchar(256);                                                                                    000034
+   296     dcl-s outname   varchar(256);                                                                                    000035
+   297     dcl-s errname   varchar(256);                                                                                    000036
+   298     dcl-s inf       varchar(256);                                                                                    000037
+   299     dcl-s outf      varchar(256);                                                                                    000038
+   300     dcl-s errf      varchar(256);                                                                                    000039
+   301     dcl-s tempf     varchar(256);                                                                                    000040
+   302     dcl-s result    varchar(32760);                                                                                  000041
+   303     dcl-s at        char(1) ccsid(*UTF8) inz('@');                                                                   000042
+   304                                                                                                                      000043
+   305     // Build temp names for stream files                                                                             000044
+   306     tempf = %xlate('.-':'__':%char(%timestamp()));                                                                   000045
+   307     inname  = '/tmp/' + tempf + '_in.txt';                                                                           000046
+   308     outname = '/tmp/' + tempf + '_out.txt';                                                                          000047
+   309     errname = '/tmp/' + tempf + '_err.txt';                                                                          000048
+   310     outf = '"' + outname  + '"';                                                                                     000049
+   311     errf = '"' + errname + '"';                                                                                      000050
+   312     inf  = '"' + inname  + '"';                                                                                      000051
+   313                                                                                                                      000052
+   314     // use pase shell to unwrap parameters from string                                                               000053
+   315     cmd = 'curl --silent --show-error "'  + url + '" ';                                                              000054
+   316                                                                                                                      000055
+   317     if %parms() >= %parmnum(parms) ;                                                                 B01             000056
+   318         cmd += parms;                                                                                 01             000057
+   319     endif;                                                                                           E01             000058
+   320                                                                                                                      000059
+   321     if %parms() >=  %parmnum(data);                                                                  B01             000060
+   322         ic_writeToStream (inname : data);                                                             01             000061
+   323         cmd += ' --data-binary ' + at + inf;                                                          01             000062
+   324     endif;                                                                                           E01             000063
+   325                                                                                                                      000064
+   326     cmd += ' --output ' + outf;                                                                                      000065
+   327     cmd += ' --stderr ' + errf;                                                                                      000066
+   328     cmd +=';setccsid 1208 ' + outf;                                                                                  000067
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page     11
+Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+   329     cmd +=';setccsid 1208 ' + errf;                                                                                  000068
+   330     Qp2Shell (                                                                                                       000069
+   331         '/QOpenSys/usr/bin/sh' + x'00' :                                                                             000070
+   332         '-c'+ x'00' :                                                                                                000071
+   333         cmd + x'00'                                                                                                  000072
+   334     );                                                                                                               000073
+   335     // Unpack the respons from IFS to a varchar                                                                      000074
+   336     result = ic_loadFromStream (errname);                                                                            000075
+   337     if result > '';                                                                                  B01             000076
+   338         result = 'ERROR:' +result;                                                                    01             000077
+   339     else;                                                                                            X01             000078
+   340         result = ic_loadFromStream (outname);                                                         01             000079
+   341     endif;                                                                                           E01             000080
+   342                                                                                                                      000081
+   343     // Clean up                                                                                                      000082
+   344     unlink (inname);                                                                                                 000083
+   345     unlink (outname);                                                                                                000084
+   346     unlink (errname);                                                                                                000085
+   347     return result;                                                                                                   000086
+   348                                                                                                                      000087
+   349 end-proc;                                                                                                            000088
+   350 //  -----------------------------------------------------------------------------                                    000089
+   351 //  load a stream file into a string                                                                                 000090
+   352 //  -----------------------------------------------------------------------------                                    000091
+   353 dcl-proc ic_loadFromStream export;                                                                                   000092
+   354                                                                                                                      000093
+   355     dcl-pi *n varchar(32760);                                                                                        000094
+   356         fileName    varchar(256)   value;                                                                            000095
+   357     end-pi;                                                                                                          000096
+   358                                                                                                                      000097
+   359     dcl-ds bufds qualified;                                                                                          000098
+   360         buf  varchar(32760);                                                                                         000099
+   361         len  int(5) pos(1);                                                                                          000100
+   362         data char(32760) pos(3);                                                                                     000101
+   363     end-ds;                                                                                                          000102
+   364                                                                                                                      000103
+   365     dcl-s f         pointer;                                                                                         000104
+   366                                                                                                                      000105
+   367     f = fopen(fileName : 'r, o_ccsid=0' );                                                                           000106
+   368     bufds.len = fread (%addr(bufds.data): 1: %size(bufds.data) : f);                                                 000107
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page     12
+Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
+Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
+   369     fclose(f);                                                                                                       000108
+   370     return bufds.buf;                                                                                                000109
+   371                                                                                                                      000110
+   372 end-proc;                                                                                                            000111
+   373 //  -----------------------------------------------------------------------------                                    000112
+   374 //  load a stream file into a string                                                                                 000113
+   375 //  -----------------------------------------------------------------------------                                    000114
+   376 dcl-proc ic_writeToStream export;                                                                                    000115
+   377                                                                                                                      000116
+   378     dcl-pi *n ;                                                                                                      000117
+   379         fileName    varchar(256)   value;                                                                            000118
+   380         inbuf       varchar(32760) const options(*varsize) ccsid(*UTF8);                                             000119
+   381     end-pi;                                                                                                          000120
+   382                                                                                                                      000121
+   383     dcl-s f         pointer;                                                                                         000122
+   384     dcl-s buf       varchar(32760) ccsid(*UTF8);                                                                     000123
+   385                                                                                                                      000124
+   386     buf = inbuf;                                                                                                     000125
+   387     f = fopen(fileName : 'wb, o_ccsid=1208' );                                                                       000126
+   388     fwrite (%addr(buf:*DATA): 1: %len(buf) : f);                                                                     000127
+   389     fclose(f);                                                                                                       000128
+   390                                                                                                                      000129
+   391 end-proc;                                                                                                            000130
+       * * * * *   E N D   O F   S O U R C E   * * * * *
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page     13
+          A d d i t i o n a l   D i a g n o s t i c   M e s s a g e s
+ Msg id  Sv Number Seq     Message text
+*RNF5409 00    344 000083  The prototyped call returns a value which is lost when
+                           CALLP is used.
+*RNF5409 00    345 000084  The prototyped call returns a value which is lost when
+                           CALLP is used.
+*RNF5409 00    346 000085  The prototyped call returns a value which is lost when
+                           CALLP is used.
+*RNF5409 00    369 000108  The prototyped call returns a value which is lost when
+                           CALLP is used.
+*RNF5409 00    388 000127  The prototyped call returns a value which is lost when
+                           CALLP is used.
+*RNF5409 00    389 000128  The prototyped call returns a value which is lost when
+                           CALLP is used.
+ * * * * *   E N D   O F   A D D I T I O N A L   D I A G N O S T I C   M E S S A G E S   * * * * *
+                            / C o p y   M e m b e r s
+Line   Src  RPG name   <-------- External name -------> CCSID  <- Last change ->
+Number Id              Library    File       Member            Date     Time
+    12    1 ILEcurl.r+ ./headers/ILEcurl.rpgle            819  07-04-20 00:04:04
+    41    2 IFS.rpgle  ./headers/IFS.rpgle                819  06-04-20 18:44:39
+         * * * * *   E N D   O F   / C O P Y   M E M B E R S   * * * * *
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page     14
+                          C r o s s   R e f e r e n c e
+      File and Record References:
+         File              Device             References (D=Defined)
+           Record
+         No references in the source.
+      Global Field References:
+         Field             Attributes         References (D=Defined M=Modified)
+*RNF7031 ACCESS            I(10,0)               176D
+                           PROTOTYPE
+*RNF7031 CHDIR             I(10,0)               113D
+                           PROTOTYPE
+*RNF7031 CHMOD             I(10,0)               180D
+                           PROTOTYPE
+*RNF7031 CLOSE             I(10,0)               210D
+                           PROTOTYPE
+*RNF7031 CLOSEDIR          I(10,0)               122D
+                           PROTOTYPE
+*RNF7031 DIRDS             DS(696)                89D
+                           BASED(PROTOTYPE+)
+*RNF7031   CCSID           I(10,0)                97D
+*RNF7031   COUNTRY         A(2)                   98D
+*RNF7031   FILENO          U(10,0)                92D
+*RNF7031   LANG            A(3)                   99D
+*RNF7031   NAME            A(640)                104D
+*RNF7031   NAMELEN         U(10,0)               103D
+           NLSINFO         A(12)                  96D     97      98      99
+                                                 100
+*RNF7031   RECLEN          U(10,0)                93D
+*RNF7031   RESERVED1       A(16)                  90D
+*RNF7031   RESERVED2       U(10,0)                91D
+*RNF7031   RESERVED3       I(10,0)                94D
+*RNF7031   RESERVED4       A(8)                   95D
+*RNF7031   RESERVED5       A(3)                  100D
+*RNF7031   VARNAME         A(640)                102D
+                           VARYING(2)
+           VARNAMEDS       A(644)                101D    102     103     104
+*RNF7031 F_OK              CONST                 171D
+         FCLOSE            I(10,0)               256D    369M    389M
+                           PROTOTYPE
+*RNF7031 FDOPEN            *(16)                 251D
+                           PROTOTYPE
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page     15
+*RNF7031 FFLUSH            U(10,0)               240D
+                           PROTOTYPE
+*RNF7031 FGETS             *(16)                 219D
+                           PROTOTYPE
+         FOPEN             *(16)                 215D    367     387
+                           PROTOTYPE
+*RNF7031 FPUTS             I(10,0)               224D
+                           PROTOTYPE
+         FREAD             I(10,0)               228D    368
+                           PROTOTYPE
+*RNF7031 FSEEK             I(10,0)               243D
+                           PROTOTYPE
+*RNF7031 FSTAT             I(10,0)                84D
+                           PROTOTYPE
+*RNF7031 FTELL             I(10,0)               248D
+                           PROTOTYPE
+         FWRITE            I(10,0)               234D    388M
+                           PROTOTYPE
+*RNF7031 GETCWD            *(16)                 125D
+                           PROTOTYPE
+         IC_CURL           A(32760)               19D    279
+                           VARYING(2)
+                           PROTOTYPE
+*RNF7031 IC_JOBLOG         I(10,0)                34D
+                           PROTOTYPE
+         IC_LOADFROMSTREAM A(32760)               25D    336     340     353
+                           VARYING(2)
+                           PROTOTYPE
+         IC_WRITETOSTREAM  PROTOTYPE              29D    322M    376
+*RNF7031 LSEEK             I(10,0)               205D
+                           PROTOTYPE
+*RNF7031 MKDIR             I(10,0)               106D
+                           PROTOTYPE
+*RNF7031 O_APPEND          CONST                 137D
+*RNF7031 O_CCSID           CONST                 135D
+*RNF7031 O_CODEPAGE        CONST                 146D
+*RNF7031 O_CREAT           CONST                 133D
+*RNF7031 O_DSYNC           CONST                 139D
+*RNF7031 O_EXCL            CONST                 134D
+*RNF7031 O_INHERITMODE     CONST                 149D
+*RNF7031 O_LARGEFILE       CONST                 150D
+*RNF7031 O_NOCTTY          CONST                 141D
+*RNF7031 O_RDONLY          CONST                 130D
+*RNF7031 O_RDWR            CONST                 132D
+*RNF7031 O_RSYNC           CONST                 140D
+*RNF7031 O_SHARE_NONE      CONST                 145D
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page     16
+*RNF7031 O_SHARE_RDONLY    CONST                 142D
+*RNF7031 O_SHARE_RDWR      CONST                 144D
+*RNF7031 O_SHARE_WRONLY    CONST                 143D
+*RNF7031 O_SYNC            CONST                 138D
+*RNF7031 O_TEXT_CREAT      CONST                 148D
+*RNF7031 O_TEXTDATA        CONST                 147D
+*RNF7031 O_TRUNC           CONST                 136D
+*RNF7031 O_WRONLY          CONST                 131D
+*RNF7031 OPEN              I(10,0)               184D
+                           PROTOTYPE
+*RNF7031 OPENDIR           *(16)                 116D
+                           PROTOTYPE
+         PROTOTYPE_ONLY    *(16)                  59      89     260
+*RNF7031 R_OK              CONST                 172D
+*RNF7031 READ              I(10,0)               195D
+                           PROTOTYPE
+*RNF7031 READDIR           *(16)                 119D
+                           PROTOTYPE
+*RNF7031 RENAME            I(10,0)                52D
+                           PROTOTYPE
+*RNF7031 RMDIR             I(10,0)               110D
+                           PROTOTYPE
+*RNF7031 S_IRGRP           CONST                 157D
+*RNF7031 S_IROTH           CONST                 161D
+*RNF7031 S_IRUSR           CONST                 153D
+*RNF7031 S_IRWXG           CONST                 160D
+*RNF7031 S_IRWXO           CONST                 164D
+*RNF7031 S_IRWXU           CONST                 156D
+*RNF7031 S_IWGRP           CONST                 158D
+*RNF7031 S_IWOTH           CONST                 162D
+*RNF7031 S_IWUSR           CONST                 154D
+*RNF7031 S_IXGRP           CONST                 159D
+*RNF7031 S_IXOTH           CONST                 163D
+*RNF7031 S_IXUSR           CONST                 155D
+*RNF7031 SEEK_CUR          CONST                 202D
+*RNF7031 SEEK_END          CONST                 203D
+*RNF7031 SEEK_SET          CONST                 201D
+*RNF7031 STAT              I(10,0)                80D
+                           PROTOTYPE
+*RNF7031 STATDS            DS(128)                59D
+                           BASED(PROTOTYPE+)
+*RNF7031   ALLOCSIZE       U(10,0)                72D
+*RNF7031   ATIME           I(10,0)                67D
+*RNF7031   BLKSIZE         U(10,0)                71D
+*RNF7031   CODEPAGE        U(5,0)                 75D
+*RNF7031   CTIME           I(10,0)                69D
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page     17
+*RNF7031   DEV             U(10,0)                70D
+*RNF7031   FILLER01        A(2)                   74D
+*RNF7031   GID             U(10,0)                65D
+*RNF7031   INO             U(10,0)                61D
+*RNF7031   INO_GEN_ID      U(10,0)                77D
+*RNF7031   MODE            U(10,0)                60D
+*RNF7031   MTIME           I(10,0)                68D
+*RNF7031   NLINK           U(5,0)                 62D
+*RNF7031   OBJTYPE         A(10)                  73D
+*RNF7031   PAD             A(2)                   63D
+*RNF7031   RESERVED1       A(62)                  76D
+*RNF7031   SIZE            I(10,0)                66D
+*RNF7031   UID             U(10,0)                64D
+         UNLINK            I(10,0)                56D    344M    345M    346M
+                           PROTOTYPE
+         UTIMBUFDS         DS(8)                 260D    266
+                           BASED(PROTOTYPE+)
+*RNF7031   ATIME           I(10,0)               261D
+*RNF7031   MTIME           I(10,0)               262D
+*RNF7031 UTIME             I(10,0)               264D
+                           PROTOTYPE
+*RNF7031 W_OK              CONST                 173D
+*RNF7031 WRITE             I(10,0)               190D
+                           PROTOTYPE
+*RNF7031 X_OK              CONST                 174D
+      Field References for subprocedure IC_CURL
+         Field             Attributes         References (D=Defined M=Modified)
+         AT                A(1)                  303D    323
+                           CCSID(1208)
+         CMD               A(32760)              294D    315M    318M    323M
+                           VARYING(2)            326M    327M    328M    329M
+                                                 333
+         DATA              A(32760)              284D    321     322
+                           BASED(_QRNL_PST+)
+                           VARYING(2)
+                           CCSID(1208)
+         ERRF              A(256)                300D    311M    327     329
+                           VARYING(2)
+         ERRNAME           A(256)                297D    309M    311     336
+                           VARYING(2)            346
+         INF               A(256)                298D    312M    323
+                           VARYING(2)
+         INNAME            A(256)                295D    307M    312     322
+                           VARYING(2)            344
+         OUTF              A(256)                299D    310M    326     328
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page     18
+                           VARYING(2)
+         OUTNAME           A(256)                296D    308M    310     340
+                           VARYING(2)            345
+         PARMS             A(32760)              283D    317     318
+                           BASED(_QRNL_PST+)
+                           VARYING(2)
+         QP2SHELL          PROTOTYPE             288D    330M
+         RESULT            A(32760)              302D    336M    337     338M
+                           VARYING(2)            338     340M    347
+         TEMPF             A(256)                301D    306M    307     308
+                           VARYING(2)            309
+         URL               A(256)                282D    315
+                           BASED(_QRNL_PST+)
+                           VARYING(2)
+      Field References for subprocedure IC_LOADFROMSTREAM
+         Field             Attributes         References (D=Defined M=Modified)
+         BUFDS             DS(32762)             359D    368M    368     368
+                                                 370
+           BUF             A(32760)              360D    370
+                           VARYING(2)
+           DATA            A(32760)              362D    368     368
+           LEN             I(5,0)                361D    368
+         F                 *(16)                 365D    367M    368     369
+         FILENAME          A(256)                356D    367
+                           VARYING(2)
+      Field References for subprocedure IC_WRITETOSTREAM
+         Field             Attributes         References (D=Defined M=Modified)
+         BUF               A(32760)              384D    386M    388     388
+                           VARYING(2)
+                           CCSID(1208)
+         F                 *(16)                 383D    387M    388     389
+         FILENAME          A(256)                379D    387
+                           VARYING(2)
+         INBUF             A(32760)              380D    386
+                           BASED(_QRNL_PST+)
+                           VARYING(2)
+                           CCSID(1208)
+      Indicator References:
+         Indicator                            References (D=Defined M=Modified)
+       * * * * *   E N D   O F   C R O S S   R E F E R E N C E   * * * * *
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page     19
+                      E x t e r n a l   R e f e r e n c e s
+      Statically bound procedures:
+         Procedure                            References
+         stat                                     80
+         open                                    184
+         read                                    195
+         fstat                                    84
+         mkdir                                   106
+         rmdir                                   110
+         chdir                                   113
+         chmod                                   180
+         write                                   190
+         lseek                                   205
+         close                                   210
+         utime                                   264
+         unlink                                   56     344     345     346
+         getcwd                                  125
+         access                                  176
+         fdopen                                  251
+         opendir                                 116
+         readdir                                 119
+         closedir                                122
+         Qp0zLprintf                              34
+         _C_IFS_fopen                            215     367     387
+         _C_IFS_fgets                            219
+         _C_IFS_fputs                            224
+         _C_IFS_fread                            228     368
+         _C_IFS_fseek                            243
+         _C_IFS_ftell                            248
+         _C_IFS_fwrite                           234     388
+         _C_IFS_fflush                           240
+         _C_IFS_fclose                           256     369     389
+         Qp0lRenameKeep                           52
+      Imported fields:
+         Field             Attributes         Defined
+         No references in the source.
+      Exported fields:
+         Field             Attributes         Defined
+         No references in the source.
+   * * * * *   E N D   O F   E X T E R N A L   R E F E R E N C E S   * * * * *
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page     20
+                          M e s s a g e   S u m m a r y
+ Msg id  Sv Number Message text
+*RNF5409 00      6 The prototyped call returns a value which is lost when CALLP
+                   is used.
+*RNF7031 00    100 The name or indicator is not referenced.
+       * * * * *   E N D   O F   M E S S A G E   S U M M A R Y   * * * * *
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 00:57:16        Page     21
+                            F i n a l   S u m m a r y
+  Message Totals:
+    Information  (00) . . . . . . . :      106
+    Warning      (10) . . . . . . . :        0
+    Error        (20) . . . . . . . :        0
+    Severe Error (30+)  . . . . . . :        0
+    ---------------------------------  -------
+    Total . . . . . . . . . . . . . :      106
+  Source Totals:
+    Records . . . . . . . . . . . . :      391
+    Specifications  . . . . . . . . :      262
+    Data records  . . . . . . . . . :        0
+    Comments  . . . . . . . . . . . :       81
+         * * * * *   E N D   O F   F I N A L   S U M M A R Y   * * * * *
+Module ILECURL placed in library ILECURL. 00 highest severity. Created on 07-04-20 at 00:57:16.
+          * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *

@@ -1,0 +1,73 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Compile current file",
+            "command": "ssh -t dksrv133  'PATH=/QOpenSys/pkgs/bin:$PATH;cd /prj/ILEcurl/;gmake ${fileBasename} DIR=${relativeFileDirname}'",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "silent",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": {
+                "owner": "c",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):(error|warning|info):(.{7}):(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "code" : 5,
+                    "message": 6
+                }
+            }
+        },
+        {
+            "label": "Compile Service program",
+            "command": "ssh dksrv133 'PATH=/QOpenSys/pkgs/bin:$PATH;cd /prj/ILEcurl/;gmake all'",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "Compile Test modules for noxDB",
+            "command": "ssh dksrv133 'PATH=/QOpenSys/pkgs/bin:$PATH;cd /prj/ILEcurl/test/;gmake'",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
+        },
+        {
+            "label": "Compile current example file",
+            "command": "ssh -t dksrv133 'PATH=/QOpenSys/pkgs/bin:$PATH;cd /prj/ILEcurl/examples/;gmake compile SRC=${fileBasename} OBJ=${fileBasenameNoExtension}'",
+            "type": "shell",
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        }
+    ]
+}

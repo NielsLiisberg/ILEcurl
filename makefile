@@ -1,101 +1,127 @@
-
 #-----------------------------------------------------------
 # User-defined part start
 #
+# The shell we use
 
-# NOTE - UTF is not allowed for ILE source (yet) - so convert to WIN-1208
+# NOTE - UTF is not allowed for ILE source (yet) - so convert to WIN-1252
+# NOTE!! gmake is case sensitive for targets !!
+
 
 # BIN_LIB is the destination library for the service program.
 # the rpg modules and the binder source file are also created in BIN_LIB.
 # binder source file and rpg module can be remove with the clean step (make clean)
-BIN_LIB=noxDB2
+.PHONY=all
+BIN_LIB=ILECURL
+DIR=src
+LIBLIST=$(BIN_LIB) 
 DBGVIEW=*ALL
 TARGET_CCSID=*JOB
+TARGET_RELEASE=*CURRENT
+STMF=$(DIR)/$@
+OBJ=$(notdir $*)
 
-# The shell we use
-SHELL=/QOpenSys/usr/bin/qsh
+# CL - settings
+CLFLAGS=DBGVIEW(*ALL)
+CLINCLUDE=*SRCFILE
 
-# Do not touch below
-INCLUDE='/QIBM/include' 'headers/' 'headers/ext/'
 
-CCFLAGS=OPTIMIZE(10) ENUM(*INT) TERASPACE(*YES) STGMDL(*INHERIT) SYSIFCOPT(*IFSIO) INCDIR($(INCLUDE)) DBGVIEW($(DBGVIEW)) TGTCCSID($(TARGET_CCSID))
+# C - Settings
+CFLAGS=OPTIMIZE(10) ENUM(*INT) TERASPACE(*YES) STGMDL(*INHERIT) SYSIFCOPT(*IFSIO) DBGVIEW(*ALL)
+CINCLUDE='/QIBM/include' 'include'
 
-# For current compile:
-CCFLAGS2=OPTION(*STDLOGMSG) OUTPUT(*NONE) OPTIMIZE(10) ENUM(*INT) TERASPACE(*YES) STGMDL(*INHERIT) SYSIFCOPT(*IFSIO) DBGVIEW(*ALL) INCDIR($(INCLUDE)) 
+# RPG - Settings
+RPGINCLUDE='./..'
+RPGFLAGS=DBGVIEW(*LIST)
+
+# SQLRPG - Settings
+SQLRPGINCLUDE='./..'
+SQLRPGFLAGS=DBGVIEW(*LIST) RPGPPOPT(*LVL2)
+
+
+# CMD - Settings
+CMDFLAGS=PRDLIB($(BIN_LIB)) REPLACE(*YES)
+
+# DSPF - Settings
+DSPFFLAGS=REPLACE(*YES)
+
+# SQL - Settings
+SQLFLAGS=COMMIT(*NONE)
 
 #
 # User-defined part end
 #-----------------------------------------------------------
 
-# Dependency list
+# Dependency list ---  list all
 
-all: clean $(BIN_LIB).lib noxDB2.srvpgm hdr
+all:  $(BIN_LIB).lib ileCurl.srvpgm
 
-noxDB2.srvpgm: noxDB2.c sqlio.c csv.c xmlparser.c jsonparser.c serializer.c reader.c iterator.c http.c generic.c trace.clle ext/memUtil.c ext/parms.c ext/sndpgmmsg.c ext/stream.c ext/timestamp.c ext/trycatch.c ext/strUtil.c ext/varchar.c ext/xlate.c ext/e2aa2e.c noxDB2.bnddir
-
-noxDB2.bnddir: noxDB2.entry
 
 #-----------------------------------------------------------
-
 %.lib:
-	-system -qi "CRTLIB $* TYPE(*TEST)"
+	-system -q "CRTLIB $* TYPE(*TEST)"
 
-%.bnddir:
-	-system -qi "CRTBNDDIR BNDDIR($(BIN_LIB)/$*)"
-	-system -qi "ADDBNDDIRE BNDDIR($(BIN_LIB)/$*) OBJ($(patsubst %.entry,($(BIN_LIB)/% *SRVPGM *IMMED),$^))"
+ILEcurl.srvpgm: ILEcurl.rpgle ILEcurl.bnddir
+	compile.py --stmf="$(STMF)" --lib="$(BIN_LIB)" --liblist="$(LIBLIST)" \
+	--flags="MODULE(ILEcurl) ALWLIBUPD(*YES) TGTRLS($(TARGET_RELEASE)) DETAIL(*BASIC)"
 
-%.entry:
-	# Basically do nothing..
-	@echo "Adding binding entry $*"
+ILEcurl.bnddir: 
+	-system "CRTBNDDIR  BNDDIR($(BIN_LIB)/$(BIN_LIB))"
+	-system "RMVBNDDIRE BNDDIR($(BIN_LIB)/$(BIN_LIB)) OBJ(($(BIN_LIB)/$(BIN_LIB) *SRVPGM))"
+	-system "ADDBNDDIRE BNDDIR($(BIN_LIB)/$(BIN_LIB)) OBJ(($(BIN_LIB)/$(BIN_LIB) *SRVPGM)) POSITION(*FIRST)"
+
+%.rpgle:
+	compile.py --stmf="$(STMF)" --lib="$(BIN_LIB)" --liblist="$(LIBLIST)" --flags="$(RPGFLAGS)" --include="$(RPGINCLUDE)"
+
+%.sqlrpgle:
+	compile.py --stmf="$(STMF)" --lib="$(BIN_LIB)" --liblist="$(LIBLIST)" --flags="$(SQLRPGFLAGS)" --include="$(SQLRPGINCLUDE)"
 
 %.c:
-	system -i "CHGATR OBJ('src/$*.c') ATR(*CCSID) VALUE(1208)"
-	system "CRTCMOD MODULE($(BIN_LIB)/$(notdir $*)) SRCSTMF('src/$*.c') $(CCFLAGS)"
+	compile.py --stmf="$(STMF)" --lib="$(BIN_LIB)" --liblist="$(LIBLIST)" --flags="$(CFLAGS)" --include="$(CINCLUDE)"
 
 %.clle:
-	system -i "CHGATR OBJ('src/$*.clle') ATR(*CCSID) VALUE(1208)"
-	-system -qi "CRTSRCPF FILE($(BIN_LIB)/QCLLESRC) RCDLEN(132)"
-	system "CPYFRMSTMF FROMSTMF('src/$*.clle') TOMBR('/QSYS.lib/$(BIN_LIB).lib/QCLLESRC.file/$(notdir $*).mbr') MBROPT(*ADD)"
-	system "CRTCLMOD MODULE($(BIN_LIB)/$(notdir $*)) SRCFILE($(BIN_LIB)/QCLLESRC) DBGVIEW($(DBGVIEW))"
+	compile.py --stmf="$(STMF)" --lib="$(BIN_LIB)" --liblist="$(LIBLIST)" --flags="$(CLFLAGS)" --include="$(CLINCLUDE)"
 
-%.srvpgm:
-	-system -qi "CRTSRCPF FILE($(BIN_LIB)/QSRVSRC) RCDLEN(132)"
-	system "CPYFRMSTMF FROMSTMF('headers/$*.binder') TOMBR('/QSYS.lib/$(BIN_LIB).lib/QSRVSRC.file/$*.mbr') MBROPT(*replace)"
-	
-	# You may be wondering what this ugly string is. It's a list of objects created from the dep list that end with .c or .clle.
-	$(eval modules := $(patsubst %,$(BIN_LIB)/%,$(basename $(filter %.c %.clle,$(notdir $^)))))
-	
-	system -i -kpieb "CRTSRVPGM SRVPGM($(BIN_LIB)/$*) MODULE($(modules)) SRCFILE($(BIN_LIB)/QSRVSRC) ACTGRP(QILE) ALWLIBUPD(*YES) TGTRLS(*current)"
+%.cmd:
+	compile.py --stmf="$(STMF)" --lib="$(BIN_LIB)" --liblist="$(LIBLIST)" --flags="$(CMDFLAGS)"
+
+%.dspf:
+	compile.py --stmf="$(STMF)" --lib="$(BIN_LIB)" --liblist="$(LIBLIST)" --flags="$(DSPFFLAGS)"
+
+
+%.menu:
+	compile.py --stmf="$(STMF)" --lib="$(BIN_LIB)" --liblist="$(LIBLIST)" --flags="$(MENUFLAGS)"
+
+%.pnlgrp:
+	compile.py --stmf="$(STMF)" --lib="$(BIN_LIB)" --liblist="$(LIBLIST)" --flags="$(PNLGRPFLAGS)"
+
+%.sql:
+	compile.py --stmf="$(STMF)" --lib="$(BIN_LIB)" --liblist="$(LIBLIST)" --flags="$(SQLFLAGS)"
 
 hdr:
-	sed "s/ nox_/ json_/g; s/ NOX_/ JSON_/g" headers/noxDB2.rpgle > headers/noxDB2JSON.rpgle
-	sed "s/ nox_/ xml_/g; s/ NOX_/ XML_/g" headers/noxDB2.rpgle > headers/noxDB2XML.rpgle
-
-	system -i "CRTSRCPF FILE($(BIN_LIB)/QRPGLESRC) RCDLEN(132)"
-	system -i "CRTSRCPF FILE($(BIN_LIB)/H) RCDLEN(132)"
-  
-	system "CPYFRMSTMF FROMSTMF('headers/noxDB2JSON.rpgle') TOMBR('/QSYS.lib/$(BIN_LIB).lib/QRPGLESRC.file/noxDB2JSON.mbr') MBROPT(*REPLACE)"
-	system "CPYFRMSTMF FROMSTMF('headers/noxDB2XML.rpgle') TOMBR('/QSYS.lib/$(BIN_LIB).lib/QRPGLESRC.file/noxDB2XML.mbr') MBROPT(*REPLACE)"
-	system "CPYFRMSTMF FROMSTMF('headers/noxDB2.h') TOMBR('/QSYS.lib/$(BIN_LIB).lib/H.file/noxDB2.mbr') MBROPT(*REPLACE)"
+	-system -q "CRTSRCPF FILE($(BIN_LIB)/QRPGLESRC) RCDLEN(112)"
+	system "CPYFRMSTMF FROMSTMF('headers/ILEcurl.rpgle') TOMBR('/QSYS.lib/$(BIN_LIB).lib/QRPGLESRC.file/ILEcurl.mbr') MBROPT(*REPLACE)"
 
 all:
 	@echo Build success!
 
 clean:
-	-system -qi "DLTOBJ OBJ($(BIN_LIB)/*ALL) OBJTYPE(*FILE)"
-	-system -qi "DLTOBJ OBJ($(BIN_LIB)/*ALL) OBJTYPE(*MODULE)"
+	-system -q "DLTOBJ OBJ($(BIN_LIB)/*ALL) OBJTYPE(*FILE)"
+	-system -q "DLTOBJ OBJ($(BIN_LIB)/*ALL) OBJTYPE(*MODULE)"
 
-deploy:
-	-system -qi "DLTOBJ   OBJ($(BIN_LIB)/*ALL) OBJTYPE(*MODULE)"
-	-system -qi "CRTSAVF  FILE(QGPL/$(BIN_LIB))"
-	system -qi "CLRSAVF  FILE(QGPL/$(BIN_LIB))"
-	system -qi "SAVLIB   LIB($(BIN_LIB)) DEV(*SAVF) SAVF(QGPL/$(BIN_LIB))" 
-	system -qi "CPYTOARCF  FROMFILE('/QSYS.LIB/QGPL.LIB/$(BIN_LIB).FILE') TOARCF('bin/$(BIN_LIB).zip')"  
-
-
-# For vsCode / single file then i.e.: gmake current sqlio.c  
-current: 
-	system "CRTCMOD MODULE($(BIN_LIB)/$(MOD)) SRCSTMF('$(SRC)') $(CCFLAGS2) "
-
-example: 
-	system "CRTBNDRPG PGM($(BIN_LIB)/$(MOD)) SRCSTMF('$(SRC)') DBGVIEW(*ALL)" 
+release: clean
+	@echo " -- Creating noxdb release. --"
+	@echo " -- Creating save file. --"
+	system "CRTSAVF FILE($(BIN_LIB)/RELEASE)"
+	system "SAVLIB LIB($(BIN_LIB)) DEV(*SAVF) SAVF($(BIN_LIB)/RELEASE) OMITOBJ((RELEASE *FILE))"
+	-rm -r release
+	-mkdir release
+	system "CPYTOSTMF FROMMBR('/QSYS.lib/$(BIN_LIB).lib/RELEASE.FILE') TOSTMF('./release/release.savf') STMFOPT(*REPLACE) STMFCCSID(1252) CVTDTA(*NONE)"
+	@echo " -- Cleaning up... --"
+	system "DLTOBJ OBJ($(BIN_LIB)/RELEASE) OBJTYPE(*FILE)"
+	@echo " -- Release created! --"
+	@echo ""
+	@echo "To install the release, run:"
+	@echo "  > CRTLIB $(BIN_LIB)"
+	@echo "  > CPYFRMSTMF FROMSTMF('./release/release.savf') TOMBR('/QSYS.lib/$(BIN_LIB).lib/RELEASE.FILE') MBROPT(*REPLACE) CVTDTA(*NONE)"
+	@echo "  > RSTLIB SAVLIB($(BIN_LIB)) DEV(*SAVF) SAVF($(BIN_LIB)/RELEASE)"
+	@echo ""
