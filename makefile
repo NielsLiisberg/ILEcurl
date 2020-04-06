@@ -109,7 +109,7 @@ clean:
 	-system -q "DLTOBJ OBJ($(BIN_LIB)/*ALL) OBJTYPE(*MODULE)"
 
 release: clean
-	@echo " -- Creating noxdb release. --"
+	@echo " -- Creating ILEcurl release. --"
 	@echo " -- Creating save file. --"
 	system "CRTSAVF FILE($(BIN_LIB)/RELEASE)"
 	system "SAVLIB LIB($(BIN_LIB)) DEV(*SAVF) SAVF($(BIN_LIB)/RELEASE) OMITOBJ((RELEASE *FILE))"
