@@ -14,10 +14,7 @@ ctl-opt bndDir('ILECURL');
 dcl-proc main ;
 
     dcl-s res varchar(32700);
-
     res = ic_curl ('https://google.com':'-k');
-
     ic_joblog (res);
-
 
 end-proc;
