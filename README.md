@@ -16,7 +16,7 @@ end-proc;
 
 ### Installation
 
-Installation of ILEcurl should be done with `git`, `gmake` (GNU Make) and `python`, which are available via `yum` - you can read more about [yum here](https://bitbucket.org/ibmi/opensource/src/master/docs/yum/).
+Installation of ILEcurl should be done with `git`, `gmake` (GNU Make) , `python` and most important `curl`, which are all available via `yum` - you can read more about [yum here](https://bitbucket.org/ibmi/opensource/src/master/docs/yum/).
 
 ILEcurl is a two step process. ILEcurl requires you to build from source, but this step has been totally automated for you. To install ILEcurl, you need to use the pase environment (with `ssh` for example) and with a couple of seconds you can have the project built. No need to download save files, upload them or restore them.
 
@@ -61,8 +61,10 @@ https://curl.haxx.se/docs/manpage.html
 
 
 ### Release
-To install the binary release, run:
+To deploy ILEcurl you need to run `yum install curl` on your target box and to install the binary release:
 ```
 CRTLIB ILECURL
 CPYFRMSTMF FROMSTMF('./release/release.savf') TOMBR('/QSYS.lib/ILECURL.lib/RELEASE.FILE') MBROPT(*REPLACE) CVTDTA(*NONE)
 RSTLIB SAVLIB(ILECURL) DEV(*SAVF) SAVF(ILECURL/RELEASE)
+````
+You can now copy the ILEcurl service proogram and prototypes into your application library if you wish. 
