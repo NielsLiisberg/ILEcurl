@@ -67,4 +67,4 @@ CRTLIB ILECURL
 CPYFRMSTMF FROMSTMF('./release/release.savf') TOMBR('/QSYS.lib/ILECURL.lib/RELEASE.FILE') MBROPT(*REPLACE) CVTDTA(*NONE)
 RSTLIB SAVLIB(ILECURL) DEV(*SAVF) SAVF(ILECURL/RELEASE)
 ````
-You can now copy the ILEcurl service proogram and prototypes into your application library if you wish. 
+You can now copy the ILEcurl prototypes and service program into your application library if you wish. 
