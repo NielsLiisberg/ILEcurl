@@ -60,7 +60,7 @@ all:  $(BIN_LIB).lib ILEcurl.srvpgm release
 %.lib:
 	-system -q "CRTLIB $* TYPE(*TEST)"
 
-ILEcurl.srvpgm: ILEcurl.rpgle ILEcurl.bnddir
+ILEcurl.srvpgm: ILEcurl.rpgle ILEcurl.bnddir hdr
 	compile.py --stmf="$(STMF)" --lib="$(BIN_LIB)" --liblist="$(LIBLIST)" \
 	--flags="MODULE(ILEcurl) ALWLIBUPD(*YES) TGTRLS($(TARGET_RELEASE)) DETAIL(*BASIC)"
 
@@ -105,8 +105,9 @@ all:
 	@echo Build success!
 
 clean:
-	-system -q "DLTOBJ OBJ($(BIN_LIB)/*ALL) OBJTYPE(*FILE)"
 	-system -q "DLTOBJ OBJ($(BIN_LIB)/*ALL) OBJTYPE(*MODULE)"
+	-system -q "DLTOBJ OBJ($(BIN_LIB)/QSRVSRC) OBJTYPE(*FILE)"
+	-system -q "DLTOBJ OBJ($(BIN_LIB)/EVFEVENT) OBJTYPE(*FILE)"
 
 release: clean
 	@echo " -- Creating ILEcurl release. --"
