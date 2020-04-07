@@ -30,9 +30,9 @@ This will create:
 
 * The `ILEcurl` library
 * `ILEcurl/ILEcurl` service program.
-* `ILEcurl/QRPGLESRC.ILEcurl` for the ILEcurl API prototypes.
-* `ILEcurl/ILEcurl` binding directory, with the `ILEcurl` object on it.
-* `Test` folder with examples .
+* `ILEcurl/QRPGLEREF.ILEcurl` for the ILEcurl API prototypes.
+* `ILEcurl/ILEcurl` binding directory, with the reference to `ILEcurl` service program.
+* `Test` folder with test and examples.
 
 ### Using ILEcurl
 the syntax is 
@@ -67,4 +67,10 @@ CRTLIB ILECURL
 CPYFRMSTMF FROMSTMF('./release/release.savf') TOMBR('/QSYS.lib/ILECURL.lib/RELEASE.FILE') MBROPT(*REPLACE) CVTDTA(*NONE)
 RSTLIB SAVLIB(ILECURL) DEV(*SAVF) SAVF(ILECURL/RELEASE)
 ````
-You can now copy the ILEcurl prototypes and service program into your application library if you wish. 
+You can now copy the ILEcurl prototypes and service program into your application 
+library if you wish. You can also merge it into your application library directly
+with this restore command:
+
+```
+RSTOBJ OBJ(*ALL) SAVLIB(ILECURL) DEV(*SAVF)  SAVF(ILECURL/RELEASE) MBROPT(*ALL) ALWOBJDIF(*FILELVL) RSTLIB(MyAppLib)
+````

@@ -1,6 +1,6 @@
 Command is > CRTRPGMOD SRCSTMF('src/ILEcurl.rpgle') MODULE(ILECURL/ILEcurl) DBGVIEW(*LIST) OPTION(*NOUNREF *EVENTF) INCDIR('./..')  <
-RNS9305: Module ILECURL placed in library ILECURL. 00 highest severity. Created on 07-04-20 at 02:08:46.
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page      1
+RNS9305: Module ILECURL placed in library ILECURL. 00 highest severity. Created on 07-04-20 at 11:32:12.
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page      1
   Command  . . . . . . . . . . . . :   CRTRPGMOD
     Issued by  . . . . . . . . . . :     NLI
   Module . . . . . . . . . . . . . :   ILECURL
@@ -37,7 +37,7 @@ RNS9305: Module ILECURL placed in library ILECURL. 00 highest severity. Created 
   Generate program interface . . . :   *NO
   Include directory  . . . . . . . :   ./..
   Preprocessor options . . . . . . :   *NONE
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page      2
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page      2
 Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
 Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
                           S o u r c e   L i s t i n g
@@ -77,7 +77,7 @@ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7...
         *  Compiler options . . . . . . . . :   *XREF      *GEN              *
         *                                       *NOSECLVL  *SHOWCPY          *
         *                                       *EXPDDS    *EXT              *
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page      3
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page      3
 Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
 Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
         *                                       *NOSHOWSKP *NOSRCSTMT        *
@@ -122,7 +122,7 @@ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7...
     38+                                                                                                                    1000027
     39+                                                                                                                    1000028
     40+                                                                                                                    1000029
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page      4
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page      4
 Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
 Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
     41 /include headers/IFS.rpgle                                                                                           000013
@@ -167,7 +167,7 @@ Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+...
     73+d  objtype                      10A                                                                                 2000032
     74+d  filler01                      2A                                                                                 2000033
     75+d  codepage                      5U 0                                                                               2000034
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page      5
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page      5
 Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
 Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
     76+d  reserved1                    62A                                                                                 2000035
@@ -214,7 +214,7 @@ Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+...
    117+d  dirname                        *   value options(*string)                                                        2000076
    118+                                                                                                                    2000077
    119+d readdir         PR              *   extproc('readdir')                                                            2000078
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page      6
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page      6
 Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
 Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
    120+d  hdir                           *   value                                                                         2000079
@@ -261,7 +261,7 @@ Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+...
    161+d S_IROTH         C                   4                                    read permission, pub                     2000120
    162+d S_IWOTH         C                   2                                    write permission, pu                     2000121
    163+d S_IXOTH         C                   1                                    execute/search permi                     2000122
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page      7
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page      7
 Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
 Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
    164+d S_IRWXO         C                   7                                    read, write, execute                     2000123
@@ -308,7 +308,7 @@ Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+...
    205+d lseek           PR            10I 0 extproc('lseek')                                                              2000164
    206+d  hfile                        10I 0 value                                                                         2000165
    207+d  offset                       10I 0 value                                                                         2000166
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page      8
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page      8
 Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
 Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
    208+d  whence                       10I 0 value                                                                         2000167
@@ -355,7 +355,7 @@ Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+...
    249+d   filePtr                       *   value                                                                         2000208
    250+ *                                                                                                                  2000209
    251+d fdopen          pr              *   extproc('fdopen')                                                             2000210
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page      9
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page      9
 Line   <---------------------- Source Specifications ----------------------------><---- Comments ----> Do  Page  Change Src Seq
 Number ....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10 Num Line  Date   Id  Number
    252+d   fildes                      10I 0 value                                                                         2000211
@@ -396,7 +396,7 @@ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7...
    284         data   varchar(32760) const options(*varsize:*nopass) ccsid(*UTF8);                                          000023
    285     end-pi;                                                                                                          000024
    286                                                                                                                      000025
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page     10
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page     10
 Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
 Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
    287     // Need PASE for this trick                                                                                      000026
@@ -441,7 +441,7 @@ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7...
    326     cmd += ' --output ' + outf;                                                                                      000065
    327     cmd += ' --stderr ' + errf;                                                                                      000066
    328     cmd +=';setccsid 1208 ' + outf;                                                                                  000067
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page     11
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page     11
 Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
 Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
    329     cmd +=';setccsid 1208 ' + errf;                                                                                  000068
@@ -484,7 +484,7 @@ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7...
    366                                                                                                                      000105
    367     f = fopen(fileName : 'r, o_ccsid=0' );                                                                           000106
    368     bufds.len = fread (%addr(bufds.data): 1: %size(bufds.data) : f);                                                 000107
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page     12
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page     12
 Line   <---------------------- Source Specifications ----------------------------------------------------->  Do  Change Src Seq
 Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7....+....8....+....9....+...10  Num Date   Id  Number
    369     fclose(f);                                                                                                       000108
@@ -511,7 +511,7 @@ Number ....+....1....+....2....+....3....+....4....+....5....+....6....+....7...
    390                                                                                                                      000129
    391 end-proc;                                                                                                            000130
        * * * * *   E N D   O F   S O U R C E   * * * * *
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page     13
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page     13
           A d d i t i o n a l   D i a g n o s t i c   M e s s a g e s
  Msg id  Sv Number Seq     Message text
 *RNF5409 00    344 000083  The prototyped call returns a value which is lost when
@@ -533,7 +533,7 @@ Number Id              Library    File       Member            Date     Time
     12    1 ILEcurl.r+ ./headers/ILEcurl.rpgle            819  07-04-20 00:04:04
     41    2 IFS.rpgle  ./headers/IFS.rpgle                819  06-04-20 18:44:39
          * * * * *   E N D   O F   / C O P Y   M E M B E R S   * * * * *
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page     14
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page     14
                           C r o s s   R e f e r e n c e
       File and Record References:
          File              Device             References (D=Defined)
@@ -575,7 +575,7 @@ Number Id              Library    File       Member            Date     Time
                            PROTOTYPE
 *RNF7031 FDOPEN            *(16)                 251D
                            PROTOTYPE
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page     15
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page     15
 *RNF7031 FFLUSH            U(10,0)               240D
                            PROTOTYPE
 *RNF7031 FGETS             *(16)                 219D
@@ -622,7 +622,7 @@ Number Id              Library    File       Member            Date     Time
 *RNF7031 O_RDWR            CONST                 132D
 *RNF7031 O_RSYNC           CONST                 140D
 *RNF7031 O_SHARE_NONE      CONST                 145D
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page     16
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page     16
 *RNF7031 O_SHARE_RDONLY    CONST                 142D
 *RNF7031 O_SHARE_RDWR      CONST                 144D
 *RNF7031 O_SHARE_WRONLY    CONST                 143D
@@ -669,7 +669,7 @@ Number Id              Library    File       Member            Date     Time
 *RNF7031   BLKSIZE         U(10,0)                71D
 *RNF7031   CODEPAGE        U(5,0)                 75D
 *RNF7031   CTIME           I(10,0)                69D
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page     17
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page     17
 *RNF7031   DEV             U(10,0)                70D
 *RNF7031   FILLER01        A(2)                   74D
 *RNF7031   GID             U(10,0)                65D
@@ -715,7 +715,7 @@ Number Id              Library    File       Member            Date     Time
          INNAME            A(256)                295D    307M    312     322
                            VARYING(2)            344
          OUTF              A(256)                299D    310M    326     328
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page     18
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page     18
                            VARYING(2)
          OUTNAME           A(256)                296D    308M    310     340
                            VARYING(2)            345
@@ -756,7 +756,7 @@ Number Id              Library    File       Member            Date     Time
       Indicator References:
          Indicator                            References (D=Defined M=Modified)
        * * * * *   E N D   O F   C R O S S   R E F E R E N C E   * * * * *
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page     19
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page     19
                       E x t e r n a l   R e f e r e n c e s
       Statically bound procedures:
          Procedure                            References
@@ -797,14 +797,14 @@ Number Id              Library    File       Member            Date     Time
          Field             Attributes         Defined
          No references in the source.
    * * * * *   E N D   O F   E X T E R N A L   R E F E R E N C E S   * * * * *
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page     20
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page     20
                           M e s s a g e   S u m m a r y
  Msg id  Sv Number Message text
 *RNF5409 00      6 The prototyped call returns a value which is lost when CALLP
                    is used.
 *RNF7031 00    100 The name or indicator is not referenced.
        * * * * *   E N D   O F   M E S S A G E   S U M M A R Y   * * * * *
- 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 02:08:46        Page     21
+ 5770WDS V7R3M0  160422 RN        IBM ILE RPG             ILECURL/ILECURL          DKSRV133   07-04-20 11:32:11        Page     21
                             F i n a l   S u m m a r y
   Message Totals:
     Information  (00) . . . . . . . :      106
@@ -819,5 +819,5 @@ Number Id              Library    File       Member            Date     Time
     Data records  . . . . . . . . . :        0
     Comments  . . . . . . . . . . . :       81
          * * * * *   E N D   O F   F I N A L   S U M M A R Y   * * * * *
-Module ILECURL placed in library ILECURL. 00 highest severity. Created on 07-04-20 at 02:08:46.
+Module ILECURL placed in library ILECURL. 00 highest severity. Created on 07-04-20 at 11:32:12.
           * * * * *   E N D   O F   C O M P I L A T I O N   * * * * *
