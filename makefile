@@ -98,7 +98,7 @@ ILEcurl.bnddir:
 	compile.py --stmf="$(STMF)" --lib="$(BIN_LIB)" --liblist="$(LIBLIST)" --flags="$(SQLFLAGS)"
 
 hdr:
-	-system -q "CRTSRCPF FILE($(BIN_LIB)/QRPGLEREF) RCDLEN(112)"
+	-system -q "CRTSRCPF FILE($(BIN_LIB)/QRPGLEREF) RCDLEN(132)"
 	system "CPYFRMSTMF FROMSTMF('headers/ILEcurl.rpgle') TOMBR('/QSYS.lib/$(BIN_LIB).lib/QRPGLEREF.file/ILEcurl.mbr') MBROPT(*REPLACE)"
 
 all:
