@@ -16,7 +16,7 @@ DIR=src
 LIBLIST=$(BIN_LIB) 
 DBGVIEW=*ALL
 TARGET_CCSID=*JOB
-TARGET_RELEASE=*CURRENT
+TARGET_RELEASE=*PRV
 STMF=$(DIR)/$@
 OBJ=$(notdir $*)
 
@@ -31,7 +31,7 @@ CINCLUDE='/QIBM/include' 'include'
 
 # RPG - Settings
 RPGINCLUDE='./..'
-RPGFLAGS=DBGVIEW(*LIST)
+RPGFLAGS=DBGVIEW(*LIST) TGTRLS($(TARGET_RELEASE))
 
 # SQLRPG - Settings
 SQLRPGINCLUDE='./..'
@@ -65,9 +65,9 @@ ILEcurl.srvpgm: ILEcurl.rpgle ILEcurl.bnddir hdr
 	--flags="MODULE(ILEcurl) ALWLIBUPD(*YES) TGTRLS($(TARGET_RELEASE)) DETAIL(*BASIC)"
 
 ILEcurl.bnddir: 
+	-system "DLTBNDDIR  BNDDIR($(BIN_LIB)/$(BIN_LIB))"
 	-system "CRTBNDDIR  BNDDIR($(BIN_LIB)/$(BIN_LIB))"
-	-system "RMVBNDDIRE BNDDIR($(BIN_LIB)/$(BIN_LIB)) OBJ(($(BIN_LIB)/$(BIN_LIB) *SRVPGM))"
-	-system "ADDBNDDIRE BNDDIR($(BIN_LIB)/$(BIN_LIB)) OBJ(($(BIN_LIB)/$(BIN_LIB) *SRVPGM)) POSITION(*FIRST)"
+	-system "ADDBNDDIRE BNDDIR($(BIN_LIB)/$(BIN_LIB)) OBJ((*LIBL/$(BIN_LIB) *SRVPGM)) POSITION(*FIRST)"
 
 %.rpgle:
 	compile.py --stmf="$(STMF)" --lib="$(BIN_LIB)" --liblist="$(LIBLIST)" --flags="$(RPGFLAGS)" --include="$(RPGINCLUDE)"
@@ -115,7 +115,7 @@ release: cleanup
 	@echo " -- Creating ILEcurl release. --"
 	@echo " -- Creating save file. --"
 	system "CRTSAVF FILE($(BIN_LIB)/RELEASE)"
-	system "SAVLIB LIB($(BIN_LIB)) DEV(*SAVF) SAVF($(BIN_LIB)/RELEASE) OMITOBJ((RELEASE *FILE))"
+	system "SAVLIB LIB($(BIN_LIB)) DEV(*SAVF) SAVF($(BIN_LIB)/RELEASE) TGTRLS($(TARGET_RELEASE)) OMITOBJ((RELEASE *FILE))"
 	-rm -r release
 	-mkdir release
 	system "CPYTOSTMF FROMMBR('/QSYS.lib/$(BIN_LIB).lib/RELEASE.FILE') TOSTMF('./release/release.savf') STMFOPT(*REPLACE) STMFCCSID(1252) CVTDTA(*NONE)"

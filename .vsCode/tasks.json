@@ -34,40 +34,69 @@
                     "message": 6
                 }
             }
-        },
-        {
-            "label": "Compile Service program",
-            "command": "ssh dksrv133 'PATH=/QOpenSys/pkgs/bin:$PATH;cd /prj/ILEcurl/;gmake all'",
+        },{
+            "label": "Build release",
+            "command": "ssh -t dksrv133  'PATH=/QOpenSys/pkgs/bin:$PATH;cd /prj/ILEcurl/;gmake release'",
             "type": "shell",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": [
-                "$gcc"
-            ]
-        },
-        {
-            "label": "Compile Test modules for noxDB",
-            "command": "ssh dksrv133 'PATH=/QOpenSys/pkgs/bin:$PATH;cd /prj/ILEcurl/test/;gmake'",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new"
+            },
+            "problemMatcher": {
+                "owner": "c",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):(error|warning|info):(.{7}):(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "code" : 5,
+                    "message": 6
+                }
+            }
+        },,{
+            "label": "Build all",
+            "command": "ssh -t dksrv133  'PATH=/QOpenSys/pkgs/bin:$PATH;cd /prj/ILEcurl/;gmake all'",
             "type": "shell",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": [
-                "$gcc"
-            ]
-        },
-        {
-            "label": "Compile current example file",
-            "command": "ssh -t dksrv133 'PATH=/QOpenSys/pkgs/bin:$PATH;cd /prj/ILEcurl/examples/;gmake compile SRC=${fileBasename} OBJ=${fileBasenameNoExtension}'",
-            "type": "shell",
-            "group": {
-                "kind": "build",
-                "isDefault": true
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "new"
             },
-            "problemMatcher": []
+            "problemMatcher": {
+                "owner": "c",
+                "fileLocation": [
+                    "relative",
+                    "${workspaceRoot}"
+                ],
+
+                "pattern": {
+                    "regexp": "^(.*):(\\d+):(\\d+):(error|warning|info):(.{7}):(.*)$",
+                    "file": 1,
+                    "line": 2,
+                    "column": 3,
+                    "severity": 4,
+                    "code" : 5,
+                    "message": 6
+                }
+            }
         }
+
     ]
 }
