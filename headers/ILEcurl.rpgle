@@ -8,7 +8,7 @@
 dcl-s IC_LONGUTF8VARCHAR varchar(1048572:4) ccsid(*utf8) template;
 
 dcl-pr ic_curl like(IC_LONGUTF8VARCHAR) rtnparm ;
-    url    varchar(256)   const options(*varsize);
+    url    varchar(32760)   const options(*varsize);
     parms  varchar(32760) const options(*varsize:*nopass);
     data   like(IC_LONGUTF8VARCHAR)  const options(*varsize:*nopass);    
 end-pr;

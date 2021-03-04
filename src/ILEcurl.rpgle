@@ -18,7 +18,7 @@ ctl-opt bnddir('QC2LE');
 dcl-proc ic_curl export;
 
     dcl-pi ic_curl like(IC_LONGUTF8VARCHAR) rtnparm ;
-        url    varchar(256)   const options(*varsize);
+        url    varchar(32760)   const options(*varsize);
         parms  varchar(32760) const options(*varsize:*nopass);
         datain   like(IC_LONGUTF8VARCHAR)  const options(*varsize:*nopass);    
     end-pi;

@@ -65,7 +65,7 @@
                     "message": 6
                 }
             }
-        },,{
+        },{
             "label": "Build all",
             "command": "ssh -t dksrv133  'PATH=/QOpenSys/pkgs/bin:$PATH;cd /prj/ILEcurl/;gmake all'",
             "type": "shell",
