@@ -31,6 +31,10 @@ dcl-proc ic_curl export;
         parm3 char(32760) const options(*varsize);
     End-Pr Qp2Shell;
 
+    dcl-pr tmpnam  pointer extproc('_C_IFS_tmpnam');   
+        name   char(256);                              
+    end-pr;                                            
+
     dcl-s cmd       varchar(32760);
     dcl-s inname    varchar(256);
     dcl-s outname   varchar(256);
@@ -39,15 +43,17 @@ dcl-proc ic_curl export;
     dcl-s outf      varchar(256);
     dcl-s errf      varchar(256);
     dcl-s tempf     varchar(256);
+    dcl-s nameBuf   char(256);
     dcl-s result    like(IC_LONGUTF8VARCHAR);
     dcl-s data      like(IC_LONGUTF8VARCHAR);
     dcl-s at        char(1) ccsid(*UTF8) inz('@');
 
     // Build temp names for stream files
-    tempf = %xlate('.-':'__':%char(%timestamp()));
-    inname  = '/tmp/' + tempf + '_in.txt';
-    outname = '/tmp/' + tempf + '_out.txt';
-    errname = '/tmp/' + tempf + '_err.txt';
+    tmpnam ( namebuf);                  
+    tempf = %trim ( namebuf : x'0040'); 
+    inname  = tempf + '_curl_in.txt';
+    outname = tempf + '_curl_out.txt';
+    errname = tempf + '_curl_err.txt';
     outf = '"' + outname  + '"';
     errf = '"' + errname + '"';
     inf  = '"' + at + inname  + '"';
