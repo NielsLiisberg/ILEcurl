@@ -115,7 +115,7 @@ release: cleanup
 	@echo " -- Creating ILEcurl release. --"
 	@echo " -- Creating save file. --"
 	system "CRTSAVF FILE($(BIN_LIB)/RELEASE)"
-	system "SAVLIB LIB($(BIN_LIB)) DEV(*SAVF) SAVF($(BIN_LIB)/RELEASE) TGTRLS($(TARGET_RELEASE)) OMITOBJ((RELEASE *FILE))"
+	system "SAVLIB LIB($(BIN_LIB)) DEV(*SAVF) SAVF($(BIN_LIB)/RELEASE) TGTRLS($(TARGET_RELEASE)) OMITOBJ((RELEASE *FILE)) DTACPR(*HIGH)"
 	-rm -r release
 	-mkdir release
 	system "CPYTOSTMF FROMMBR('/QSYS.lib/$(BIN_LIB).lib/RELEASE.FILE') TOSTMF('./release/release.savf') STMFOPT(*REPLACE) STMFCCSID(1252) CVTDTA(*NONE)"
