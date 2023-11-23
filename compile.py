@@ -1,4 +1,4 @@
-#!/QOpenSys/usr/bin/python
+#!/QOpenSys/pkgs/bin/python3.9
 
 #cd /prj/capdev
 #python compile.py --stmf=/prj/icecap/src/hello.c --lib=CAPDEV --obj=HELLO
@@ -124,13 +124,13 @@ def	runscriptAndShowOutput  (stmf, shell):
 	)
 
 	for ln in proc.stdout:
-		ln = ln.rstrip()
+		lns = ln.decode().rstrip()
 		#if ln.startswith(' ***ERROR'):
-		print ln
+		print (lns)
 
 	for ln in proc.stderr:
-		ln = ln.rstrip()
-		print ln
+		lns = ln.decode().rstrip()
+		print (lns)
 
 def	runscriptAndShowEventfile (stmf, shell, lib , obj):
 	runscript (stmf, shell)
@@ -148,17 +148,17 @@ def runscript(stmf, shell):
 	# Format messages
 	i=0
 	for ln in proc.stderr:
-		ln = ln.rstrip()
+		ln = str(ln).rstrip()
 		msgid = ln[0:7]
 		if msgid  not in ['CPC2206' , 'CZM1003', 'CPD4090' ,'CZS2117' , 'CPFB414', 'CPF5813' ,'CPF7302' , 'CPCA081', 'CPC0904' ,'CPC7301' ,'CPI2126']:
 			i += 1
-			print '{stmf}:{line}:{col}:{sev}:{msg}'.format(
+			print ('{stmf}:{line}:{col}:{sev}:{msg}'.format(
 				stmf  = stmf,
 				sev   = 'info',
 				msg   = ln,
 				line  = 0,
 				col   = i
-			)
+			))
 
 # ------------------------------------------------------------------------
 # Format the data from the EVENTF
@@ -177,21 +177,21 @@ def showEventFile (lib , obj):
 	)
 
 	rec = proc.stdout.read(400)
-	while rec > ' ':
+	while (len(rec)  > 0):
 		ln = rec.decode('cp500').encode('latin1').rstrip()
 		lntype = ln[0:5]
 		if  lntype == 'ERROR': 
 			msgid = ln[48:55]
 			severity = ln[56:57]
 			if  msgid not in ['RNF7031', 'RNF7534' , 'RNF5409']:
-				print '{stmf}:{line}:{col}:{sev}:{msgid}:{msgtext}'.format(
+				print ('{stmf}:{line}:{col}:{sev}:{msgid}:{msgtext}'.format(
 					stmf  = stmf,
 					sev   = ('info' if severity in ["I" , "W"] else 'error'),
 					msgid = msgid,
 					msgtext = ln[65:9999],
 					line  = ln[37:43],
 					col   = ln[44:47]
-				)
+				))
 		rec = proc.stdout.read(400)
 
 def runandshow (shell):
@@ -204,14 +204,14 @@ def runandshow (shell):
 	)
 
 	for ln in proc.stdout:
-		print ln.rstrip()
+		print (str(ln).rstrip())
 
 def syscmd(cmd):
 	wrkcmd = "system -vK \"" + cmd.replace("'", "'\\''") + "\";\n"
 	return wrkcmd
 
 def syscmdlist(cmd):
-	print cmd
+	print (cmd)
 	wrkcmd = oscmd("touch postlist.txt")
 	wrkcmd += oscmd("setccsid 1252 postlist.txt")
 	wrkcmd += "system -vK \"" + cmd.replace("'", "'\\''") + "\" >postlist.txt;\n"
@@ -255,12 +255,9 @@ flags = args.flags
 showEvent = False
 
 
-#print args
-#print sys
-
-
 # get the components: file, path and extention
-path, filename  = os.path.split(stmf)
+fullPath = os.path.normpath(stmf)
+path, filename  = fullPath.split(os.sep)
 obj, ext = filename.split(".")
 cmd, extflags = pickUpFlags(stmf)
 
@@ -293,4 +290,4 @@ elif ext == 'pnlgrp':
 elif ext == 'sql':
 	build_sql (stmf , cmd ,lib , liblist ,obj , flags , include)
 else:
-	print "no compiler for " + ext
+	print ("no compiler for " + ext)

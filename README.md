@@ -19,6 +19,13 @@ end-proc;
 If you just need the binary, simply skip to the "Release" section in this document. If you, however, will work with this project - this is what you do:   
 
 Installation of ILEcurl should be done with `git`, `gmake` (GNU Make) , `python` and most important `curl`, which are all available via `yum` - you can read more about [yum here](https://bitbucket.org/ibmi/opensource/src/master/docs/yum/).
+```
+yum install git
+yum install make-gnu
+yum install python39
+yum install curl 
+
+```
 
 ILEcurl is a two step process. ILEcurl requires you to build from source, but this step has been totally automated for you. To install ILEcurl, you need to use the pase environment (with `ssh` for example) and with a couple of seconds you can have the project built. No need to download save files, upload them or restore them.
 
