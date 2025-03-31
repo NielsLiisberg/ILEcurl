@@ -124,12 +124,12 @@ def	runscriptAndShowOutput  (stmf, shell):
 	)
 
 	for ln in proc.stdout:
-		lns = ln.decode().rstrip()
+		lns = ln.decode('latin1').rstrip()
 		#if ln.startswith(' ***ERROR'):
 		print (lns)
 
 	for ln in proc.stderr:
-		lns = ln.decode().rstrip()
+		lns = ln.decode('latin1').rstrip()
 		print (lns)
 
 def	runscriptAndShowEventfile (stmf, shell, lib , obj):
